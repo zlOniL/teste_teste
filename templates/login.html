@@ -1,0 +1,5 @@
+{% extends 'base.html' %}{% block title %}Acesso restrito{% endblock %}{% block content %}
+<div class="login-page"><div class="panel"><div class="login-motif"></div><span class="kicker">Acesso restrito</span><h1>Bem-vindo ao painel.</h1><p class="subtitle">Entre com suas credenciais para gerenciar notícias e contatos do site.</p>{% if error %}<div class="notice error" role="alert">{{ error }}</div>{% endif %}
+<form method="post" action="/admin/login"><input type="hidden" name="csrf" value="{{ csrf }}"><div class="field"><label for="username">Usuário</label><input id="username" name="username" required autocomplete="username" maxlength="80" autofocus></div><div class="field"><label for="password">Senha</label><input id="password" type="password" name="password" required autocomplete="current-password"></div><button class="btn full" type="submit">Entrar no painel →</button></form>
+<p class="hint muted" style="font-size:12px;line-height:1.65;margin:23px 0 0">Acesso exclusivo aos responsáveis autorizados. O usuário é criado durante a instalação do servidor.</p></div></div>
+{% endblock %}

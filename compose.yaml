@@ -1,0 +1,50 @@
+name: pl-serra
+services:
+  web:
+    build: .
+    restart: unless-stopped
+    init: true
+    environment:
+      SESSION_SECRET: "${SESSION_SECRET:?Configure SESSION_SECRET no .env}"
+      COOKIE_SECURE: "1"
+      SITE_URL: "https://${DOMAIN:?Configure DOMAIN no .env}"
+      PL_SERRA_DATABASE: "/app/data/pl_serra.db"
+    volumes:
+      - pl_serra_data:/app/data
+    expose:
+      - "8000"
+    read_only: true
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/robots.txt',timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 20s
+  https:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      web:
+        condition: service_healthy
+    environment:
+      DOMAIN: "${DOMAIN:?Configure DOMAIN no .env}"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    security_opt:
+      - no-new-privileges:true
+volumes:
+  pl_serra_data:
+  caddy_data:
+  caddy_config:

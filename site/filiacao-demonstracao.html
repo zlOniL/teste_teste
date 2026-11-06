@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR"><head>
+<meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="noindex,nofollow" name="robots"/><meta content="#015aaa" name="theme-color"/>
+<title>Pedido de filiação | PL Serra / ES</title>
+<link href="/assets/favicon.png" rel="icon" sizes="48x48" type="image/png"/>
+<link href="/assets/filiacao.7b97603f2350.css" rel="stylesheet"/><script defer="" src="/assets/filiacao.9744a9519655.js"></script></head><body>
+<div aria-hidden="true" class="flag-bar"></div>
+<header class="mini-nav"><a class="mini-brand" href="#inicio" target="_parent"><img alt="PL Partido Liberal" decoding="async" height="320" src="/assets/logo-320.webp" width="320"/><span><b>PARTIDO LIBERAL</b><small>SERRA · ESPÍRITO SANTO</small></span></a><a class="back-home" href="#inicio" target="_parent">← Voltar ao site</a></header>
+<main class="shell">
+<aside aria-label="Apresentação da área de filiação" class="visual-panel">
+<div aria-hidden="true" class="flag-art"><div class="flag-stripe"></div><div class="star-s1">✦</div><div class="star-s2">✦</div><div class="star-s3">✦</div><div class="star-s4">✦</div></div>
+<div class="visual-content"><div class="pill"><span class="pulse"></span> PL · SERRA / ES</div>
+<img alt="Logomarca oficial do Partido Liberal" class="hero-logo" decoding="async" height="320" src="/assets/logo-320.webp" width="320"/>
+<h1>Seu pedido de<br/><em>filiação.</em></h1>
+<p>Envie seus dados à organização municipal para análise. Um processo claro, com informações protegidas e acompanhamento administrativo.</p>
+<div class="visual-footer"><span class="swatch green"></span><span class="swatch yellow"></span><span class="swatch blue"></span><span>Partido Liberal · 22</span></div>
+</div>
+</aside>
+<section aria-labelledby="workflow-title" class="workflow">
+<div class="workflow-inner">
+<div class="workflow-top"><span class="tag">SOLICITAÇÃO DE FILIAÇÃO</span><span class="step-count" id="stepCount">ETAPA 01 / 04</span></div>
+<div class="progress"><div class="progress-value" id="progressValue"></div></div>
+<ol class="progress-labels"><li class="active">INÍCIO</li><li>DADOS</li><li>IDENTIDADE</li><li>CONCLUÍDO</li></ol>
+<div class="demo-warning" role="status"><strong>Modo de demonstração.</strong> O envio está desativado até que a equipe configure o servidor e habilite a coleta. Não preencha dados reais nesta prévia.</div>
+<form enctype="multipart/form-data" id="affiliationForm" novalidate="">
+<input name="csrf" type="hidden" value=""/>
+<div class="step active" data-step="0">
+<span class="mini-eyebrow">PRIMEIRO PASSO</span><h2 id="workflow-title">Bem-vindo à área de filiação.</h2>
+<p class="lead">Este espaço recebe solicitações encaminhadas ao PL municipal da Serra, no Espírito Santo.</p>
+<div class="declaration"><div class="decl-icon">✓</div><div><h3>Antes de continuar</h3>
+<p>Declaro que desejo <b>solicitar minha filiação</b> ao Partido Liberal e que estou no pleno gozo dos meus direitos políticos. Estou ciente de que a solicitação passará por análise partidária e que o registro oficial dependerá de lançamento no sistema FILIA do TSE.</p></div></div>
+<p class="small-note">A solicitação eletrônica não equivale, isoladamente, ao deferimento ou ao registro da filiação perante a Justiça Eleitoral.</p>
+<label class="check-row"><input id="declaration" name="declaration" type="checkbox" value="yes"/><span>Li e concordo com a declaração de solicitação acima.</span></label>
+<p aria-live="polite" class="inline-error" id="err0"></p>
+<button class="primary-btn" data-next="0" type="button">Concordar e continuar <span aria-hidden="true">→</span></button>
+</div>
+<div class="step" data-step="1">
+<span class="mini-eyebrow">DADOS ELEITORAIS</span><h2>Confirme seus dados.</h2><p class="lead">Informe os dados como constam no seu título eleitoral. Os campos marcados com * são obrigatórios.</p>
+<div class="fields"><label class="field full">Nome completo *<input autocomplete="name" maxlength="150" minlength="5" name="name" placeholder="Seu nome completo" required="" type="text"/></label>
+<label class="field full">Nº do título de eleitor *<input autocomplete="off" inputmode="numeric" maxlength="15" name="title" placeholder="0000 0000 0000" required=""/></label>
+<label class="field">Zona eleitoral *<input inputmode="numeric" maxlength="4" name="zone" placeholder="Zona" required="" type="text"/></label>
+<label class="field">Seção eleitoral *<input inputmode="numeric" maxlength="4" name="section" placeholder="Seção" required="" type="text"/></label>
+<label class="field">UF eleitoral *<select name="uf" required=""><option selected="" value="ES">ES</option></select></label>
+<label class="field">Município eleitoral *<select name="municipality" required=""><option selected="" value="Serra">Serra</option></select></label>
+<label class="field">Celular com DDD *<input autocomplete="tel" maxlength="16" name="phone" placeholder="(27) 99999-9999" required="" type="tel"/></label>
+<label class="field">E-mail (opcional)<input autocomplete="email" maxlength="254" name="email" placeholder="voce@exemplo.com" type="email"/></label>
+</div><p aria-live="polite" class="inline-error" id="err1"></p>
+<div class="action-row"><button class="secondary-btn" data-prev="1" type="button">← Voltar</button><button class="primary-btn" data-next="1" type="button">Avançar <span aria-hidden="true">→</span></button></div>
+</div>
+<div class="step" data-step="2">
+<span class="mini-eyebrow">CONFIRMAÇÃO DE IDENTIDADE</span><h2>Envie seu pedido.</h2><p class="lead">Revise os dados. Se necessário, você pode anexar uma foto para conferência documental pela equipe municipal.</p>
+<label class="upload" id="uploadDrop"><input accept="image/jpeg,image/png,image/webp" id="photoInput" name="photo" type="file"/><span aria-hidden="true" class="upload-icon">▣</span><strong id="uploadText">Adicionar foto (opcional)</strong><small>JPG, PNG ou WebP, até 5 MB. Sem reconhecimento facial automático.</small><img alt="Prévia da foto selecionada" hidden="" id="photoPreview"/></label>
+<div class="photo-tips"><strong>Recomendações</strong><p>• Envie apenas imagens relacionadas ao seu próprio pedido.</p><p>• Certifique-se de que a imagem está nítida, caso escolha anexá-la.</p><p>• A foto ficará disponível somente na área administrativa protegida.</p></div>
+<label class="check-row"><input id="privacyAck" name="privacy_ack" required="" type="checkbox" value="yes"/><span>Li o <a href="https://www.gov.br/anpd/pt-br" rel="noopener" target="_blank">aviso de privacidade</a> e estou ciente do tratamento dos meus dados para receber e analisar esta solicitação.</span></label>
+<label class="check-row optional"><input name="communications" type="checkbox" value="yes"/><span>Opcional: quero receber informações e comunicações institucionais do partido. Posso retirar essa autorização posteriormente.</span></label>
+<div aria-hidden="true" class="honeypot"><label>Deixe em branco<input autocomplete="off" name="honeypot" tabindex="-1" type="text"/></label></div>
+<p aria-live="polite" class="inline-error" id="err2" role="alert"></p>
+<div class="action-row"><button class="secondary-btn" data-prev="2" type="button">← Voltar</button><button class="primary-btn" disabled="" id="sendButton" type="submit">Enviar solicitação <span aria-hidden="true">→</span></button></div>
+<p class="small-note">Envio bloqueado nesta prévia. Depois que a instalação estiver configurada, a equipe poderá ativar os recebimentos.</p>
+</div>
+<div class="step" data-step="3" id="finalStep"><div class="success-mark">✓</div><h2>Solicitação recebida!</h2><p class="lead">Esta é apenas uma prévia. Nenhum pedido foi armazenado. Guarde o número de protocolo.</p><div class="protocol"><small>PROTOCOLO</small><strong id="protocolValue">—</strong><button class="copy-btn" id="copyProtocol" type="button">Copiar</button></div><p class="small-note">Este comprovante não é uma certidão de filiação. Sua situação de filiado deverá ser conferida após o processamento oficial no FILIA.</p><a class="primary-btn return-btn" href="#inicio" target="_parent">Voltar ao site <span aria-hidden="true">→</span></a></div>
+</form>
+<div class="trust-foot"><span>🔒 Dados com acesso restrito</span><span>Serra · Espírito Santo</span></div>
+</div>
+</section>
+</main></body></html>

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}{% block title %}Painel de gestão{% endblock %}{% block content %}
+<span class="kicker">Gestão de conteúdo</span><h1>Painel administrativo</h1><p class="subtitle">Olá, <strong>{{ admin.username }}</strong>. Gerencie as notícias e os canais de contato exibidos no site.</p>
+{% if saved %}<div class="notice" role="status">Alterações salvas com sucesso.</div>{% endif %}{% if error %}<div class="notice error" role="alert">{{ error }}</div>{% endif %}
+<div class="columns">
+<section><div class="panel"><div class="panel-heading"><h2>Notícias publicadas e rascunhos</h2><a class="btn green" href="/admin/noticias/nova">+ Nova notícia</a></div>
+{% if noticias %}<table class="admin-table"><thead><tr><th>Título</th><th>Situação</th><th>Ações</th></tr></thead><tbody>{% for n in noticias %}<tr><td><div class="headline">{{ n.titulo }}</div><small>{{ n.categoria }} · {{ n.created_at[:10] }}</small></td><td><span class="badge {{ 'published' if n.status=='publicado' else 'draft' }}">{{ 'Publicado' if n.status=='publicado' else 'Rascunho' }}</span></td><td><div class="admin-actions"><a href="/admin/noticias/{{ n.id }}/editar">Editar</a><form method="post" action="/admin/noticias/{{ n.id }}/excluir" onsubmit="return confirm('Excluir esta notícia definitivamente?')"><input type="hidden" name="csrf" value="{{ csrf }}"><button type="submit">Excluir</button></form></div></td></tr>{% endfor %}</tbody></table>
+{% else %}<p class="muted" style="line-height:1.75">Ainda não há notícias cadastradas. Clique em “Nova notícia” para criar a primeira publicação. Você pode salvá-la como rascunho antes de torná-la pública.</p>{% endif %}
+</div></section>
+<section><div class="panel"><h2>Contato e redes sociais</h2><p class="muted" style="font-size:13px;line-height:1.65">As informações abaixo alimentam o rodapé e o botão de WhatsApp do site. Deixe vazios os canais ainda não definidos.</p>
+<form method="post" action="/admin/contatos"><input type="hidden" name="csrf" value="{{ csrf }}">
+<div class="field"><label for="telefone">Telefone (com DDD)</label><input name="telefone" id="telefone" placeholder="(27) 0000-0000" value="{{ contatos.telefone|default('') }}" maxlength="35"></div>
+<div class="field"><label for="whatsapp">WhatsApp (DDI + DDD)</label><input name="whatsapp" id="whatsapp" placeholder="55 + DDD + número" value="{{ contatos.whatsapp|default('') }}"><div class="hint">Somente após configurar o número o botão flutuante iniciará a conversa.</div></div>
+<div class="field"><label for="instagram">Instagram</label><input type="url" name="instagram" id="instagram" placeholder="https://www.instagram.com/..." value="{{ contatos.instagram|default('') }}"></div>
+<div class="field"><label for="facebook">Facebook</label><input type="url" name="facebook" id="facebook" placeholder="https://www.facebook.com/..." value="{{ contatos.facebook|default('') }}"></div>
+<div class="field"><label for="youtube">YouTube</label><input type="url" name="youtube" id="youtube" placeholder="https://www.youtube.com/@..." value="{{ contatos.youtube|default('') }}"></div>
+<button type="submit" class="btn full">Salvar canais de contato</button></form></div></section>
+</div>
+{% endblock %}
